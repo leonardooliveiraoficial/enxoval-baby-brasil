@@ -42,15 +42,15 @@ const Index = () => {
               <source srcSet="/images/hero-baby.avif" type="image/avif" />
               <source srcSet="/images/hero-baby.webp" type="image/webp" />
               <img 
-                 src={heroImage} 
-                 alt="Promoções de enxoval" 
-                 width={1920} 
-                 height={1080} 
-                 loading="eager" 
-                 fetchpriority="high"
-                 className="w-full h-full object-cover"
-                 style={{ filter: 'brightness(0.9)' }}
-               />
+                  src={heroImage} 
+                  alt="Promoções de enxoval" 
+                  width={1920} 
+                  height={1080} 
+                  loading="eager" 
+                  fetchPriority="high"
+                  className="w-full h-full object-cover"
+                  style={{ filter: 'brightness(0.9)' }}
+                />
             </picture>
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-white/70"></div>
