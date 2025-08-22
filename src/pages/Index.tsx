@@ -35,15 +35,26 @@ const Index = () => {
       
       <main>
         {/* Hero Section */}
-        <section 
-          className="relative h-[70vh] flex items-center justify-center bg-gradient-hero overflow-hidden"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6)), url(${heroImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-        >
+        <section className="relative h-[70vh] flex items-center justify-center bg-gradient-hero overflow-hidden">
+          {/* Background Image with Picture Element */}
+          <div className="absolute inset-0 z-0">
+            <picture>
+              <source srcSet="/images/hero-baby.avif" type="image/avif" />
+              <source srcSet="/images/hero-baby.webp" type="image/webp" />
+              <img 
+                 src={heroImage} 
+                 alt="Promoções de enxoval" 
+                 width={1920} 
+                 height={1080} 
+                 loading="eager" 
+                 fetchpriority="high"
+                 className="w-full h-full object-cover"
+                 style={{ filter: 'brightness(0.9)' }}
+               />
+            </picture>
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-white/70"></div>
+          </div>
           <div className="container mx-auto px-4 text-center z-10">
             <div className="max-w-4xl mx-auto space-y-6">
               <h1 className="text-4xl md:text-6xl font-bold text-foreground leading-tight">

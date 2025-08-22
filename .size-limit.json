@@ -1,0 +1,6 @@
+[
+  { "path": "dist/assets/index-*.js",        "limit": "130 KB", "gzip": true },
+  { "path": "dist/assets/react-vendor-*.js", "limit": "120 KB", "gzip": true },
+  { "path": "dist/assets/supabase-*.js",     "limit": "40 KB",  "gzip": true },
+  { "path": "dist/assets/vendor-*.js",       "limit": "60 KB",  "gzip": true }
+]

@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 import { visualizer } from "rollup-plugin-visualizer";
+import { VitePWA } from "vite-plugin-pwa";
 
 const analyze = process.env.VITE_BUNDLE_ANALYZE === "1";
 
@@ -23,6 +24,34 @@ export default defineConfig(({ mode }) => ({
       template: "treemap",
       gzipSize: true,
       brotliSize: true,
+    }),
+    VitePWA({
+      registerType: "autoUpdate",
+      manifest: {
+        name: "Enxoval Baby Brasil",
+        short_name: "Enxoval",
+        start_url: "/",
+        display: "standalone",
+        background_color: "#ffffff",
+        theme_color: "#0ea5e9",
+        icons: [
+          { src: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+          { src: "/icons/icon-512.png", sizes: "512x512", type: "image/png" },
+          { src: "/icons/maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" }
+        ],
+      },
+      workbox: {
+        navigateFallback: "/index.html",
+        runtimeCaching: [
+          { urlPattern: ({url}) => url.origin===self.location.origin && url.pathname.startsWith("/assets/"),
+            handler: "StaleWhileRevalidate",
+            options: { cacheName: "assets", expiration:{ maxEntries:200, maxAgeSeconds: 60*60*24*30 } } },
+          { urlPattern: /^https:\/\/[a-z0-9-]+\.supabase\.co\/.*/i,
+            handler: "NetworkFirst",
+            options: { cacheName: "supabase", networkTimeoutSeconds: 3,
+              expiration:{ maxEntries:200, maxAgeSeconds: 60*60*24*7 } } },
+        ],
+      },
     }),
   ].filter(Boolean),
   resolve: {
