@@ -9,7 +9,8 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
-    "analyze": "set VITE_BUNDLE_ANALYZE=1 && vite build && npx rollup-plugin-visualizer dist/stats.html"
+    "analyze": "set VITE_BUNDLE_ANALYZE=1 && vite build && npx rollup-plugin-visualizer dist/stats.html",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
