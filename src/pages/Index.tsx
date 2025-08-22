@@ -47,7 +47,6 @@ const Index = () => {
                   width={1920} 
                   height={1080} 
                   loading="eager" 
-                  fetchPriority="high"
                   className="w-full h-full object-cover"
                   style={{ filter: 'brightness(0.9)' }}
                 />
