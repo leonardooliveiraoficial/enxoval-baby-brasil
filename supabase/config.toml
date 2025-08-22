@@ -1,0 +1,19 @@
+project_id = "ztjdnvzuwpcyveilmyxf"
+
+[functions.create-payment]
+verify_jwt = false
+
+[functions.infinitepay-webhook]
+verify_jwt = false
+
+[functions.admin-mercadopago-test]
+verify_jwt = true
+
+[functions.mp-checkout]
+verify_jwt = false
+
+[functions.mp-webhook]
+verify_jwt = false
+
+[functions.mp-health]
+verify_jwt = false
