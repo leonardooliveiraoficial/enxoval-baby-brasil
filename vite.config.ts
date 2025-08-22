@@ -9,6 +9,7 @@ const analyze = process.env.VITE_BUNDLE_ANALYZE === "1";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: process.env.NODE_ENV === 'production' ? '/baby-vivi-lili-main/' : '/',
   server: {
     host: "::",
     port: 8080,
@@ -43,7 +44,7 @@ export default defineConfig(({ mode }) => ({
       workbox: {
         navigateFallback: "/index.html",
         runtimeCaching: [
-          { urlPattern: ({url}) => url.pathname.startsWith("/assets/"),
+          { urlPattern: /^\/assets\//,
             handler: "StaleWhileRevalidate",
             options: { cacheName: "assets", expiration:{ maxEntries:200, maxAgeSeconds: 60*60*24*30 } } },
           { urlPattern: /^https:\/\/[a-z0-9-]+\.supabase\.co\/.*/i,
