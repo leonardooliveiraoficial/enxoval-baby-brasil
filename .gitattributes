@@ -1,0 +1,9 @@
+* text=auto
+*.sh eol=lf
+*.yml eol=lf
+*.yaml eol=lf
+*.ts text
+*.tsx text
+*.js text
+*.css text
+*.html text
