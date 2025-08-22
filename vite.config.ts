@@ -43,7 +43,7 @@ export default defineConfig(({ mode }) => ({
       workbox: {
         navigateFallback: "/index.html",
         runtimeCaching: [
-          { urlPattern: ({url}) => url.origin===globalThis.location.origin && url.pathname.startsWith("/assets/"),
+          { urlPattern: ({url}) => url.origin===window.location.origin && url.pathname.startsWith("/assets/"),
             handler: "StaleWhileRevalidate",
             options: { cacheName: "assets", expiration:{ maxEntries:200, maxAgeSeconds: 60*60*24*30 } } },
           { urlPattern: /^https:\/\/[a-z0-9-]+\.supabase\.co\/.*/i,
