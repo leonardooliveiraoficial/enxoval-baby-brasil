@@ -1,0 +1,1 @@
+# Reporte vulnerabilidades por e-mail ou issues privadas.
